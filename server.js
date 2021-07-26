@@ -21,6 +21,9 @@ import('./config/passport.js')
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 
+// profile s.1.1 import profile.js
+import { router as profilesRouter } from './routes/profiles.js'
+
 // view engine setup
 app.set(
   'views',
@@ -58,6 +61,9 @@ app.use(passport.session())
 // router middleware
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+
+// profile s.1.2 make a app.use for profiles
+app.use('/profiles', profilesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
