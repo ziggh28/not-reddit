@@ -6,9 +6,6 @@ import { Profile } from "../models/profile.js"
 // profile s.1.5 export profiles 
 export{
     index,
-
-    show, 
-
 }
 
 // profile s.1.6 make  index function
@@ -28,7 +25,4 @@ function index(req, res,){
   })
 } 
 
-// profile s.1.13 make show function 
- function show (req, res) {
-     
- }
+
