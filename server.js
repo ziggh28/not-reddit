@@ -7,6 +7,7 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import { passUserToView } from './middleware/middleware.js'
 
 // create the express app
 const app = express()
@@ -23,6 +24,9 @@ import { router as authRouter } from './routes/auth.js'
 
 // profile s.1.1 import profile.js
 import { router as profilesRouter } from './routes/profiles.js'
+
+// post import posts.js
+import { router as postsRouter } from './routes/posts.js'
 
 // view engine setup
 app.set(
@@ -62,8 +66,13 @@ app.use(passport.session())
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 
+// post make app.use for posts
+app.use('/posts', postsRouter)
+
 // profile s.1.2 make a app.use for profiles
 app.use('/profiles', profilesRouter)
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

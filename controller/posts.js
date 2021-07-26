@@ -9,7 +9,8 @@ export{
     show, 
 }
 // post s.1.6 make index function
-function index(req,res) {
+function index(req, res) {
+   
     Post.find({})
     
     .populate('author')
@@ -17,7 +18,7 @@ function index(req,res) {
     .sort({ createdAt: "desc"})
 
     .then(posts => {
-        res.render('post/index', {
+        res.render('posts/index', {
 
             title: "Post",
             
@@ -35,20 +36,26 @@ function create (req,res) {
 
     .then(()=> {
 
-        res.redirect('/post')
+        res.redirect('/posts')
     })
 }
 
+// post s.3.1 make show function
 function show(req, res) {
+    
     Post.findById(req.params.id)
+    
     .populate('author')
+    
     .then(post => {
-      res.render('post/show', {
-        title: ' Post Details',
-        message
+    
+        res.render('posts/show', {
+    
+            title: ' Post Details',
+    
+            posts
       })
     })
   }
 
-  // post s.3.1 make show function
-  
+
