@@ -3,7 +3,10 @@ import { Post } from '../models/post.js'
 
 export{
     index,
+
     create,
+
+    show, 
 }
 // post s.1.6 make index function
 function index(req,res) {
@@ -39,12 +42,6 @@ function create (req,res) {
 function show(req, res) {
     Post.findById(req.params.id)
     .populate('author')
-    .populate({
-      path: 'replies',
-      populate: {
-        path: 'author'
-      }
-    })
     .then(post => {
       res.render('post/show', {
         title: ' Post Details',
@@ -52,3 +49,6 @@ function show(req, res) {
       })
     })
   }
+
+  // post s.3.1 make show function
+  
