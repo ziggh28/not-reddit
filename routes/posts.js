@@ -11,15 +11,11 @@ export{
     router 
 }
 
-// post s.1.8 make get request for posts
-
+// post s.1.9 make get request for posts
 router.get('/', isLoggedIn, postsCtrl.index)
 
-
-
-
-
-
+// post s.2.2 make a post request for post
+router.post('/', isLoggedIn, postsCtrl.create)
 
 
 function isLoggedIn(req, res, next) {

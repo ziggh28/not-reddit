@@ -2,6 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
+  <h1 class="my-3"><%= title %></h1>
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
@@ -11,6 +12,10 @@
       >
     </div>
   <% } %>
+  <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+    <a href="/post" class="text-light text-decoration-none">
+      post
+    </a>
 </main>
 
 <%- include('./partials/footer') %>
