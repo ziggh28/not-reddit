@@ -38,7 +38,7 @@ function create (req,res) {
 
     .then(()=> {
 
-        res.redirect('/posts')
+        res.redirect('/posts/show')
     })
 }
 
@@ -51,11 +51,11 @@ function show(req, res) {
     
     .then(post => {
     
-        res.render('posts/show', {
+        res.render('/posts/show', {
     
-            title: ' Post Details',
+            title: ' Post ',
     
-            posts
+           post
       })
     })
   }

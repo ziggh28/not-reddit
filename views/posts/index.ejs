@@ -24,25 +24,26 @@
       <textarea name="content" class="form-control" id="post-content" rows="5"></textarea>
     </div>
     <button class="btn btn-primary ms-5" type="submit">Create Post</button>
+    <h2 class="my-3">Board posts</h2>
+    <%# This is where we'll loop over messages to display them %> 
+    <form action="/post" method = "POST">  
+    <% posts.forEach((post, idx) => { %>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+          <h5 class="card-title"><%= post.title %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.content %> </h6>
+        </div>
+        <button type = "submit"> view </button>
+      </form>
+        </div>
+    </div>
   </form>
-  <h2 class="my-3">Board posts</h2>
-  <%# This is where we'll loop over messages to display them %> 
-  <% posts.forEach((post, idx) => { %>
-    <section class="p-4 p-md-5 mb-4 text-white rounded bg-dark mx-4">
-      <div class="col-md-8 text-light" px-0>
-        <a 
-          href="/messages/<%= post._id %>" 
-          class="text-decoration-none text-light"
-        >
-          <h3 class="fs-1 fst-italic"><%= post.title %></h3>
-        </a>
-        <h4 class="mb-0 fs-5 fst-italic">
-          written by 
-          
-          </a>
-        </p>
-      </div>
-    </section>
+  </section>
   <% }) %>
 </main>
 <%- include('../partials/footer.ejs') %>
