@@ -6,7 +6,9 @@ export{
 
     create,
 
-    show, 
+    show,
+    
+    
 }
 // post s.1.6 make index function
 function index(req, res) {
