@@ -32,13 +32,14 @@ function index(req, res) {
 
 // post s.2.1 make create function
 function create (req,res) { 
+    
     req.body.author = req.user.profile._id
     
     Post.create(req.body)
 
     .then(()=> {
 
-        res.redirect('/posts/show')
+        res.redirect('/posts')
     })
 }
 
@@ -51,11 +52,11 @@ function show(req, res) {
     
     .then(post => {
     
-        res.render('/posts/show', {
+        res.render('posts/', {
     
-            title: ' Post ',
+            title:'Post',
     
-           post
+           posts: posts,
       })
     })
   }

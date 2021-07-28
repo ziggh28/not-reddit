@@ -4,6 +4,7 @@ import { Router } from 'express'
 //post s.1.7 import post controller
 import * as postsCtrl from "../controller/posts.js"
 
+
 // define s.1.8
 const router = Router()
 
