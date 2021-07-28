@@ -21,7 +21,7 @@ router.post('/', isLoggedIn, postsCtrl.create)
 // post s.3.2 make a get/:id request for post
 router.get('/:id', isLoggedIn, postsCtrl.show) 
 
-
+router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

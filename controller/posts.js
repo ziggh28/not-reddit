@@ -8,6 +8,7 @@ export{
 
     show,
     
+    deletePost as delete
     
 }
 // post s.1.6 make index function
@@ -62,3 +63,13 @@ function show(req, res) {
   }
 
 
+function deletePost (req , res ){
+
+    Post.findByIdAndDelete(req.params.id)
+
+    .then(()=>
+
+    res.redirect("/posts")
+    
+    )
+}
