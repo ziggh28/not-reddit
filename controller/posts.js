@@ -8,25 +8,32 @@ export{
 
     show,
     
-    deletePost as delete
+    deletePost as delete,
+
+    edit,
+
+    update,
     
 }
+
+
+
 // post s.1.6 make index function
 function index(req, res) {
-   
+    
     Post.find({})
     
     .populate('author')
-
+    
     .sort({ createdAt: "desc"})
-
+    
     .then(posts => {
         res.render('posts/index', {
-
+            
             title: "Post",
             
             posts
-
+            
         })
     })
 }
@@ -37,9 +44,9 @@ function create (req,res) {
     req.body.author = req.user.profile._id
     
     Post.create(req.body)
-
+    
     .then(()=> {
-
+        
         res.redirect('/posts')
     })
 }
@@ -52,24 +59,47 @@ function show(req, res) {
     .populate('author')
     
     .then(post => {
-    
+        
         res.render('posts/', {
-    
+            
             title:'Post',
-    
-           posts: posts,
-      })
+            
+            posts: posts,
+        })
     })
-  }
+}
 
 
 function deletePost (req , res ){
-
+    
     Post.findByIdAndDelete(req.params.id)
-
+    
     .then(()=>
-
+    
     res.redirect("/posts")
     
     )
+}
+function edit (req, res){
+    Post.findById(req.params.id)
+    
+    .then(post => {
+        
+        res.render('posts/edit', {
+            
+            post,
+
+        })
+    })
+}
+function update (req, res){
+    
+    post.findByIdAndUpdate(req.params.id, req.body)
+    
+    .then(() => {
+    
+        res.redirect('/posts')
+
+
+    })
 }

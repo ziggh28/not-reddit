@@ -23,6 +23,10 @@ router.get('/:id', isLoggedIn, postsCtrl.show)
 
 router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
+router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+
+router.put('/:id', postsCtrl.update)
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");

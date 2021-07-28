@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <title>edit post</title>
+    </head>
+    <body>
+        <h1>Edit Post</h1>
+        <form action="/post/ <%= post.content %>?_method=PUT" method="POST">
+            <input type ="text" content="content" value= "<%= post.content %>">
+            <button type="submit">save post</button>
+        </form>
+      </body>
+</html>

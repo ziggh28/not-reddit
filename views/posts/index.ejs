@@ -38,11 +38,11 @@
           <h5 class="card-title"><%= post.title %> </h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.content %> </h6>
         </div>
-        <button type = "submit"> view </button>
+      
       </form>
       <form action= "/posts/<%=  post._id %>?_method=DELETE" method="POST">
       <button>DELETE</button>
-      </form> 
+      </form> <a href="/posts/<%= post._id%>/edit">edit</a>
         </div>
     </div>
   </form>
