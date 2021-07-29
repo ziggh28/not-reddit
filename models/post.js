@@ -9,6 +9,16 @@ const Schema =  mongoose.Schema
 export {
   Post
 }
+
+
+const replySchema = new Schema({
+  
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  content: String
+},{
+  timestamps: true
+})
+
 //post s.1.4  make a postschema 
 const PostSchema = new Schema(
   {
@@ -19,7 +29,7 @@ const PostSchema = new Schema(
     author: {type: Schema.Types.ObjectId, ref: 'Profile'},
     
     // tells user exact time was made the post was created  
-    
+  reply: [ replySchema ]
 
     
   }

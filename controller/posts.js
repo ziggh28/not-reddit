@@ -13,6 +13,8 @@ export{
     edit,
 
     update,
+
+    reply,
     
 }
 
@@ -103,3 +105,22 @@ function update (req, res){
 
     })
 }
+
+function reply(req, res) {
+    
+    req.body.author = req.user.profile._id
+    
+    Post.findById(req.params.id)
+    
+    .then(post => {
+    
+        post.replies.push(req.body)
+    
+        post.save()
+    
+        .then(() => {
+    
+        res.redirect(`/posts/${req.params.id}`)
+      })
+    })
+  }

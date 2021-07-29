@@ -45,6 +45,28 @@
       </form> <a href="/posts/<%= post._id%>/edit">edit</a>
         </div>
     </div>
+    <form action= "/posts/<%= post._id %>?_method=POST" method= "POST" class="mb-3">
+    <h2 class="mb-3">Write a Reply</h2>
+    <div class="mb-3 mx-5">
+      <label for="reply-content" class="form-label">Reply</label>
+      <textarea 
+        class="form-control" 
+        id="reply-content" 
+        rows="3" 
+        name="content"
+      ></textarea>
+    </div>
+    <button class="btn btn-primary ms-5" type="submit">Reply</button>
+  </form>
+  
+  
+  
+  </form>      
+
+
+
+
+    </form>
   </form>
  
   <% }) %>
