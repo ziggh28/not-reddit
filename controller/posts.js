@@ -94,7 +94,7 @@ function edit (req, res){
 }
 function update (req, res){
     
-    post.findByIdAndUpdate(req.params.id, req.body)
+    Post.findByIdAndUpdate(req.params.id, req.body)
     
     .then(() => {
     
