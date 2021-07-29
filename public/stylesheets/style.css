@@ -18,8 +18,12 @@ html {
 }
 
 body {
-  background-color: gray;
-  /* Use a system font, if none are available use an available sans-sarif font */
+  background-image:url(https://storage.googleapis.com/kaggle-datasets-images/415/867/df69b7384e88bd05c784b83d8df63be1/dataset-card.jpg);
+
+  background-repeat: no-repeat;
+    
+  background-size:cover;
+  
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;

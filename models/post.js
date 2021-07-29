@@ -31,7 +31,6 @@ const PostSchema = new Schema(
     // tells user exact time was made the post was created  
   
   
-  
     reply: [ replySchema ]
 
     
