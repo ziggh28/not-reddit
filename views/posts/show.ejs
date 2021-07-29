@@ -29,6 +29,10 @@
     </div>
   </section>
   <form action="/posts/<%= post._id %>" method="POST" class="mb-3">
+    <% post.reply.forEach(reply => { %>
+      <p><%= reply.createdAt.toLocaleDateString()  %> </p>
+     
+    <% }) %> 
     <h2 class="mb-3">Write a Reply</h2>
     <div class="mb-3 mx-5">
       <label for="reply-content" class="form-label">Reply</label>
