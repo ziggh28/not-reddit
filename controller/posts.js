@@ -30,6 +30,9 @@ function index(req, res) {
     .sort({ createdAt: "desc"})
     
     .then(posts => {
+        
+        console.log("this is the post",posts)
+        
         res.render('posts/index', {
             
             title: "Post",
@@ -62,11 +65,13 @@ function show(req, res) {
     
     .then(post => {
         
-        res.render('posts/', {
+        console.log("this is the post", post)
+
+        res.render('posts/show', {
             
             title:'Post',
             
-            posts: posts,
+            post: post,
         })
     })
 }
@@ -114,7 +119,7 @@ function reply(req, res) {
     
     .then(post => {
     
-        post.replies.push(req.body)
+        post.reply.push(req.body)
     
         post.save()
     

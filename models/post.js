@@ -29,9 +29,14 @@ const PostSchema = new Schema(
     author: {type: Schema.Types.ObjectId, ref: 'Profile'},
     
     // tells user exact time was made the post was created  
-  reply: [ replySchema ]
+  
+  
+  
+    reply: [ replySchema ]
 
     
+  },{
+    timestamps: true,
   }
 );
 

@@ -27,6 +27,8 @@ router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
 
 router.put('/:id', postsCtrl.update)
 
+router.post('/:id', isLoggedIn, postsCtrl.reply)
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");

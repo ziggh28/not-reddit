@@ -64,6 +64,7 @@ app.use(passport.session())
 
 // router middleware
 app.use('/', indexRouter)
+
 app.use('/auth', authRouter)
 
 // post make app.use for posts
