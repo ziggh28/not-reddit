@@ -3,16 +3,29 @@
 
 </head>
 <body>
-  <nav>
-    
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8fR2fLnmi7RKEsIcRSenRJ4fDa7TucXErP7rsqAkC_MGzi4aZepCb6Eq0q5oL9uc4nE0&usqp=CAU" alt="" width="70" height="50">
+      </a> 
+      <a>
+      <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+        <a href="/posts" class="text-light text-decoration-none">
+          post
+        </a>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
-    
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
           <img id="siwg-image" alt="Sign in with Google" />
         </button>
       </a>
-
+</div>
   </nav>

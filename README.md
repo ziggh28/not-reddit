@@ -2,11 +2,17 @@
 not-reddit is a simple blog site that allows beginnner that are intimidated by world wide web to hone they're internet social skills. 
 
 
-## Movivation by this 
+## Movivation behind  this 
 in the last couple years have learned the importance of community. with social media taking a major role in how people connect and interact with eachother. I thought this would a be great oppuntity  learn develope my online skills.
 
 
 # screenshots 
+
+
+
+
+
+
 
 # getting started 
 
@@ -16,21 +22,18 @@ in the last couple years have learned the importance of community. with social m
 
 # technologie Used:
 
-bootstrap:
+bootstrap
 
 
-ejs:
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA5WHZTlqxbHuzqAeqzG6VLMS9pW7LU1guqg-uBj6lonHBlwFPDJHuuOzs9NqYU3pfjw&usqp=CAU
+ejs
 
-google Oauth:
-
-
-javascript:
+google Oauth
 
 
-heroku:
+javascript
 
 
+heroku
 
 # sample code:
 
@@ -234,4 +237,37 @@ function reply(req, res) {
 
 
 # credit 
+
+instructors 
+
+ben manley - kakashi sensei 
+
+jurgen steven - naruto uzumaki 
+
+thiago cavalcante - the first hokage 
+
+brian krabec - shikamaru nara
+
+carolina ureas - Rock lee  
+
+blake romano - orochimaru
+
+
+
+peers 
+
+cory rice - you already know 
+
+cuffy - my dawg 
+
+kyler larson - your invited to the cookout
+
+
+honorable mentions  
+
+avis js - birdman 
+
+thank you all 
+
+
 

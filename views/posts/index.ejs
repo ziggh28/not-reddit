@@ -7,7 +7,7 @@
    
   <form action="/posts" method="POST">
     <h2>
-      Write a Post
+          Write a Post
     </h2>
     <div class="mb-3 mx-5">
       <label for="title-input" class="form-label">Title</label>
@@ -24,14 +24,13 @@
       <textarea name="content" class="form-control" id="post-content" rows="5"></textarea>
     </div>
     <button class="btn btn-primary ms-5" type="submit">Create Post</button>
-    <h2 class="my-3">Board posts</h2>
+   
       
     <form action="/post" method = "POST">  
     <% posts.forEach((post, idx) => { %>
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -41,12 +40,12 @@
       
       </form>
       <form action= "/posts/<%=  post._id %>?_method=DELETE" method="POST">
-      <button>DELETE</button>
-      </form> <a href="/posts/<%= post._id%>/edit">edit</a>
+        <button>DELETE</button>
+      </form>
+       <a href="/posts/<%= post._id%>/edit">edit</a>
         </div>
     </div>
     <form action= "/posts/<%= post._id %>" method= "POST" class="mb-3">
-    <h2 class="mb-3">Write a Reply</h2>
     <p><%= post.createdAt.toLocaleDateString()%> </p>
     <div class="mb-3 mx-5">
       <label for="reply-content" class="form-label">Reply</label>
@@ -59,7 +58,9 @@
     </div>
     <button class="btn btn-primary ms-5" type="submit">Reply</button>
   </form>
-  
+
+    </div>
+  </div>
   
   
   </form>      
