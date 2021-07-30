@@ -4,7 +4,7 @@
 not-reddit is a simple blog site that allows beginnner that are intimidated by world wide web to hone they're internet social skills. 
 
 
-## Movivation behind  this 
+## Motivation behind  this 
 in the last couple years have learned the importance of community. with social media taking a major role in how people connect and interact with eachother. I thought this would a be great oppuntity  learn develope my online skills.
 
 
