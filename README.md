@@ -18,13 +18,6 @@ in the last couple years have learned the importance of community. with social m
 
 
 
-
-# getting started 
-
-
-
-
-
 # technologie Used:
 
 bootstrap
@@ -233,9 +226,9 @@ function reply(req, res) {
  
 1. I've learn that I'm not that good a code at all like I'm really bad at this.  
 
-2. the power of community. being to reach out ask help for a random stranger  
+2. the power of community. being to reach out an ask help from a random stranger  
 
-3. organization skill & writing down steps 
+3. organization skill & writing each step down 
 
 4. attention to detail 
 
@@ -264,7 +257,7 @@ thiago cavalcante - the first hokage
 
 brian krabec - shikamaru nara
 
-carolina ureas - Rock lee  
+carolina urrea - Rock lee  
 
 blake romano - orochimaru
 
