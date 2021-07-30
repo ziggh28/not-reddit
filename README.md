@@ -1,136 +1,237 @@
-# MEN Stack with OAuth Template
+# not-reddit: for simple people 
+not-reddit is a simple blog site that allows beginnner that are intimidated by world wide web to hone they're internet social skills. 
 
-This is a MEN Stack template that includes OAuth.
 
-Use this to go build things! 🚀
+## Movivation by this 
+in the last couple years have learned the importance of community. with social media taking a major role in how people connect and interact with eachother. I thought this would a be great oppuntity  learn develope my online skills.
 
-## To Use This Template
 
-__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
+# screenshots 
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
+# getting started 
 
-Once you are in the project directory:
 
-```bash
-rm -rf .git
-```
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
 
-Re-initialize a git repository:
+# technologie Used:
 
-```bash
-git init
-```
+bootstrap:
 
-Use the GitHub CLI to create a new project repository on GitHub:
 
-```bash
-gh repo create <name-of-your-app-here>
-```
+ejs:
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA5WHZTlqxbHuzqAeqzG6VLMS9pW7LU1guqg-uBj6lonHBlwFPDJHuuOzs9NqYU3pfjw&usqp=CAU
 
-Run npm i to fetch the template's dependencies:
+google Oauth:
 
-```bash
-npm i
-```
 
-Then, make an initial commit:
+javascript:
 
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
 
-touch a .env file:
+heroku:
 
-```bash
-touch .env
-```
 
-Fill it with the following:
+
+# sample code:
+
+router/posts.js -
 
 ```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CALLBACK=https://localhost:3000/auth/google/oauth2callback
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
+// post s.1.6 import router from express 
+import { Router } from 'express'
 
-Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
-
-Delete this README.md
-
-You're done!
-
-<main>
-  <h1 class="my-3"><%= title %></h1>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
-  <% } %>
-  <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
-    <a href="/posts" class="text-light text-decoration-none">
-      post
-    </a>
-</main>
+//post s.1.7 import post controller
+import * as postsCtrl from "../controller/posts.js"
 
 
+// define s.1.8
+const router = Router()
 
-html {
-  box-sizing: border-box
+export{
+    router 
 }
 
-/* The Universal Selector */
-*, /* All elements*/
-*::before, /* All ::before pseudo-elements */
-*::after { /* All ::after pseudo-elements */
-  /* height & width will now include border & padding by default
-     but can be over-ridden as needed */
-  box-sizing: inherit;
+// post s.1.9 make get request for posts
+router.get('/', isLoggedIn, postsCtrl.index)
+
+// post s.2.2 make a post request for post
+router.post('/', isLoggedIn, postsCtrl.create)
+
+// post s.3.2 make a get/:id request for post
+router.get('/:id', isLoggedIn, postsCtrl.show) 
+
+// post s.4.2 make a get/:id request for post
+router.delete('/:id', isLoggedIn, postsCtrl.delete)
+
+// post s.5.2 make a get/:id request for edit
+router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+
+// post s.6.2 make a put/:id request for put
+router.put('/:id', postsCtrl.update)
+
+// post s.7.2 make a post/:id request for post
+router.post('/:id', isLoggedIn, postsCtrl.reply)
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect("/auth/google");
+  }
+```
+
+
+controllers/posts.js
+```
+// post s.1.5 import models post
+import { Post } from '../models/post.js'
+
+export{
+    index,
+
+    create,
+
+    show,
+    
+    deletePost as delete,
+
+    edit,
+
+    update,
+
+    reply,
+    
 }
 
-/* resets font size to be 62.5% of the user preference - 
-     in most browser configurations this will be 10px */
-:root {
-    font-size: 62.5%
+
+
+// post s.1.6 make index function
+function index(req, res) {
+    
+    Post.find({})
+    
+    .populate('author')
+    
+    .sort({ createdAt: "desc"})
+    
+    .then(posts => {
+        
+        console.log("this is the post",posts)
+        
+        res.render('posts/index', {
+            
+            title: "Post",
+            
+            posts
+            
+        })
+    })
 }
 
-body {
-  background-color: gray;
-  /* Use a system font, if none are available use an available sans-sarif font */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  margin: 0;
+// post s.2.1 make create function
+function create (req,res) { 
+    
+    req.body.author = req.user.profile._id
+    
+    Post.create(req.body)
+    
+    .then(()=> {
+        
+        res.redirect('/posts')
+    })
 }
 
-nav {
-  background-color: white;
-  font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
+// post s.3.1 make show function
+function show(req, res) {
+    
+    Post.findById(req.params.id)
+    
+    .populate('author')
+    
+    .then(post => {
+        
+        console.log("this is the post", post)
+
+        res.render('posts/show', {
+            
+            title:'Post',
+            
+            post: post,
+        })
+    })
 }
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+// post s.3.1 make show function
+function deletePost (req , res ){
+    
+    Post.findByIdAndDelete(req.params.id)
+    
+    .then(()=>
+    
+    res.redirect("/posts")
+    
+    )
 }
 
-h1 {
-  font-size: 3.6rem;
+// post s.3.1 make show function
+function edit (req, res){
+    Post.findById(req.params.id)
+    
+    .then(post => {
+        
+        res.render('posts/edit', {
+            
+            post,
+
+        })
+    })
 }
+
+
+// post s.4.1 make update function
+function update (req, res){
+    
+    Post.findByIdAndUpdate(req.params.id, req.body)
+    
+    .then(() => {
+    
+        res.redirect('/posts')
+
+
+    })
+}
+
+
+// post s.5.1 make reply function
+function reply(req, res) {
+    
+    req.body.author = req.user.profile._id
+    
+    Post.findById(req.params.id)
+    
+    .then(post => {
+    
+        post.reply.push(req.body)
+    
+        post.save()
+    
+        .then(() => {
+    
+        res.redirect(`/posts/${req.params.id}`)
+      })
+    })
+  }
+
+```
+# what I've learn:
+ 
+1. I've learn that I'm not that good a code at all like I'm really bad at this.  
+
+2. the powerful community. being to reach out ask help for a random stranger  
+
+3. organization skill & writing down steps 
+
+
+4.
+
+
+# credit 
+

@@ -4,7 +4,7 @@
 
 <main class="container">
   <h1 class="my-3"><%= title %></h1>
-  <%# This is where our message creation form will go %> 
+   
   <form action="/posts" method="POST">
     <h2>
       Write a Post
@@ -25,7 +25,7 @@
     </div>
     <button class="btn btn-primary ms-5" type="submit">Create Post</button>
     <h2 class="my-3">Board posts</h2>
-    <%# This is where we'll loop over messages to display them %> 
+      
     <form action="/post" method = "POST">  
     <% posts.forEach((post, idx) => { %>
       <div class="card mb-3" style="max-width: 540px;">

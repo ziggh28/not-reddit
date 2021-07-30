@@ -21,12 +21,16 @@ router.post('/', isLoggedIn, postsCtrl.create)
 // post s.3.2 make a get/:id request for post
 router.get('/:id', isLoggedIn, postsCtrl.show) 
 
+// post s.4.2 make a get/:id request for post
 router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
+// post s.5.2 make a get/:id request for post
 router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
 
+// post s.6.2 make a get/:id request for post
 router.put('/:id', postsCtrl.update)
 
+// post s.7.2 make a get/:id request for post
 router.post('/:id', isLoggedIn, postsCtrl.reply)
 
 function isLoggedIn(req, res, next) {

@@ -76,7 +76,7 @@ function show(req, res) {
     })
 }
 
-
+// post s.3.1 make show function
 function deletePost (req , res ){
     
     Post.findByIdAndDelete(req.params.id)
@@ -87,6 +87,8 @@ function deletePost (req , res ){
     
     )
 }
+
+// post s.3.1 make show function
 function edit (req, res){
     Post.findById(req.params.id)
     
@@ -99,6 +101,9 @@ function edit (req, res){
         })
     })
 }
+
+
+// post s.4.1 make update function
 function update (req, res){
     
     Post.findByIdAndUpdate(req.params.id, req.body)
@@ -111,6 +116,8 @@ function update (req, res){
     })
 }
 
+
+// post s.5.1 make reply function
 function reply(req, res) {
     
     req.body.author = req.user.profile._id
