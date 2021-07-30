@@ -1,3 +1,5 @@
+
+
 # not-reddit: for simple people 
 not-reddit is a simple blog site that allows beginnner that are intimidated by world wide web to hone they're internet social skills. 
 
@@ -10,6 +12,9 @@ in the last couple years have learned the importance of community. with social m
 
 
 
+![Screen Shot 2021-07-30 at 1 37 19 AM](https://user-images.githubusercontent.com/86076993/127606368-a6faddcf-d6cb-4059-bef8-665390d9c3b1.png)
+
+![Screen Shot 2021-07-30 at 1 36 21 AM](https://user-images.githubusercontent.com/86076993/127606386-873710d4-9cce-461f-98e1-67614c516afe.png)
 
 
 
@@ -228,12 +233,23 @@ function reply(req, res) {
  
 1. I've learn that I'm not that good a code at all like I'm really bad at this.  
 
-2. the powerful community. being to reach out ask help for a random stranger  
+2. the power of community. being to reach out ask help for a random stranger  
 
 3. organization skill & writing down steps 
 
+4. attention to detail 
 
-4.
+
+
+
+
+# resources 
+
+https://stackoverflow.com/
+
+https://www.youtube.com/
+
+https://www.geeksforgeeks.org/web-development/?ref=shm
 
 
 # credit 
